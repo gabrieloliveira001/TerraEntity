@@ -159,6 +159,18 @@ public class TEMonsterEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<MeteorHead>> METEOR_HEAD = TEEntities.registerMonster(ENTITIES, "meteor_head", (e, l) -> new MeteorHead(e, l, new AbstractPrefab().getPrefab()), 1F, 1F);
     // 远程法师
     public static final DeferredHolder<EntityType<?>, EntityType<RangeShooter>> DARK_CASTER = TEEntities.registerMonster(ENTITIES, "dark_caster", (e, l) -> new RangeShooter(e, l, TEProjectileEntities.DARK_CASTER_PROJ, new AbstractPrefab().getPrefab()), 0.65F, 1.85F);
+    public static final DeferredHolder<EntityType<?>, EntityType<RangeShooter>> CULTIST_ARCHER = TEEntities.registerMonster(ENTITIES, "cultist_archer", (e, l) -> new RangeShooter(e, l, TEProjectileEntities.CULTIST_ARROW, new AbstractPrefab().getPrefab()), 0.65F, 1.85F);
+    public static final DeferredHolder<EntityType<?>, EntityType<CultistDevotee>> CULTIST_DEVOTEE = TEEntities.registerMonster(ENTITIES, "cultist_devotee", CultistDevotee::new, 0.65F, 1.85F);
+
+    // 天界柱怪物
+    public static final DeferredHolder<EntityType<?>, EntityType<AbstractMonster>> SELENIAN = registerSimpleMonster("selenian", LandMonsterPrefab.MUMMY_BUILDER, 0.75F, 1.95F);
+    public static final DeferredHolder<EntityType<?>, EntityType<MeteorHead>> CORITE = TEEntities.registerMonster(ENTITIES, "corite", (e, l) -> new MeteorHead(e, l, new AbstractPrefab().getPrefab()), 1F, 1F);
+    public static final DeferredHolder<EntityType<?>, EntityType<RangeShooter>> STORM_DIVER = TEEntities.registerMonster(ENTITIES, "storm_diver", (e, l) -> new RangeShooter(e, l, TEProjectileEntities.VORTEX_LASER, new AbstractPrefab().getPrefab()), 0.65F, 1.85F);
+    public static final DeferredHolder<EntityType<?>, EntityType<Hornet>> ALIEN_HORNET = TEEntities.registerMonster(ENTITIES, "alien_hornet", (e, l) -> new Hornet(e, l, FlyMonsterPrefab.BEE_BUILDER.get()), 0.8F, 1.8F);
+    public static final DeferredHolder<EntityType<?>, EntityType<RangeShooter>> NEBULA_FLOATER = TEEntities.registerMonster(ENTITIES, "nebula_floater", (e, l) -> new RangeShooter(e, l, TEProjectileEntities.NEBULA_BOLT, new AbstractPrefab().getPrefab()), 0.65F, 1.85F);
+    public static final DeferredHolder<EntityType<?>, EntityType<MeteorHead>> BRAIN_SUCKLER = TEEntities.registerMonster(ENTITIES, "brain_suckler", (e, l) -> new MeteorHead(e, l, new AbstractPrefab().getPrefab()), 1F, 1F);
+    public static final DeferredHolder<EntityType<?>, EntityType<RangeShooter>> FLOW_INVADER = TEEntities.registerMonster(ENTITIES, "flow_invader", (e, l) -> new RangeShooter(e, l, TEProjectileEntities.STARDUST_BOLT, new AbstractPrefab().getPrefab()), 0.65F, 1.85F);
+    public static final DeferredHolder<EntityType<?>, EntityType<MeteorHead>> STAR_CELL = TEEntities.registerMonster(ENTITIES, "star_cell", (e, l) -> new MeteorHead(e, l, new AbstractPrefab().getPrefab()), 1F, 1F);
     public static final DeferredHolder<EntityType<?>, EntityType<RangeShooter>> GOBLIN_SORCERER = TEEntities.registerMonster(ENTITIES, "goblin_sorcerer", (e, l) -> new RangeShooter(e, l, TEProjectileEntities.DARK_CASTER_PROJ, new AbstractPrefab().getPrefab()), 0.65F, 1.85F);
     public static final DeferredHolder<EntityType<?>, EntityType<FireImpEntity>> FIRE_IMP = TEEntities.registerMonster(ENTITIES, "fire_imp", (e, l) -> new FireImpEntity(e, l, TEProjectileEntities.FIRE_IMP_PROJ, new AbstractPrefab().getPrefab()), 0.65F, 1);
 
@@ -331,6 +343,16 @@ public class TEMonsterEntities {
 
         // 远程法师
         event.registerEntityRenderer(TEMonsterEntities.DARK_CASTER.get(), c -> new GeoNormalRenderer<>(c, TEMonsterEntities.DARK_CASTER.getId()));
+        event.registerEntityRenderer(TEMonsterEntities.CULTIST_ARCHER.get(), c -> new GeoNormalRenderer<RangeShooter>(c, new GeoNormalModel<RangeShooter>(TEMonsterEntities.DARK_CASTER.getId()).withAltTexture(TerraEntity.space("cultist_archer")), false, 1, 0));
+        event.registerEntityRenderer(TEMonsterEntities.CULTIST_DEVOTEE.get(), c -> new GeoNormalRenderer<CultistDevotee>(c, new GeoNormalModel<CultistDevotee>(TEMonsterEntities.DARK_CASTER.getId()).withAltTexture(TerraEntity.space("cultist_devotee")), false, 1, 0));
+        event.registerEntityRenderer(TEMonsterEntities.SELENIAN.get(), c -> new GeoNormalRenderer<AbstractMonster>(c, new GeoNormalModel<AbstractMonster>(TEMonsterEntities.MUMMY.getId(), true).withAltTexture(TerraEntity.space("selenian")), false, 1, 0));
+        event.registerEntityRenderer(TEMonsterEntities.CORITE.get(), c -> new GeoNormalRenderer<MeteorHead>(c, new GeoNormalModel<MeteorHead>(TEMonsterEntities.METEOR_HEAD.getId(), true).withAltTexture(TerraEntity.space("corite")), true, 1, 0));
+        event.registerEntityRenderer(TEMonsterEntities.STORM_DIVER.get(), c -> new GeoNormalRenderer<RangeShooter>(c, new GeoNormalModel<RangeShooter>(TEMonsterEntities.DARK_CASTER.getId(), true).withAltTexture(TerraEntity.space("storm_diver")), false, 1, 0));
+        event.registerEntityRenderer(TEMonsterEntities.ALIEN_HORNET.get(), c -> new GeoNormalRenderer<Hornet>(c, new GeoNormalModel<Hornet>(TEMonsterEntities.HORNET.getId(), false).withAltTexture(TerraEntity.space("alien_hornet")), true, 1, 0.2f));
+        event.registerEntityRenderer(TEMonsterEntities.NEBULA_FLOATER.get(), c -> new GeoNormalRenderer<RangeShooter>(c, new GeoNormalModel<RangeShooter>(TEMonsterEntities.DARK_CASTER.getId(), true).withAltTexture(TerraEntity.space("nebula_floater")), false, 1, 0));
+        event.registerEntityRenderer(TEMonsterEntities.BRAIN_SUCKLER.get(), c -> new GeoNormalRenderer<MeteorHead>(c, new GeoNormalModel<MeteorHead>(TEMonsterEntities.METEOR_HEAD.getId(), true).withAltTexture(TerraEntity.space("brain_suckler")), true, 1, 0));
+        event.registerEntityRenderer(TEMonsterEntities.FLOW_INVADER.get(), c -> new GeoNormalRenderer<RangeShooter>(c, new GeoNormalModel<RangeShooter>(TEMonsterEntities.DARK_CASTER.getId(), true).withAltTexture(TerraEntity.space("flow_invader")), false, 1, 0));
+        event.registerEntityRenderer(TEMonsterEntities.STAR_CELL.get(), c -> new GeoNormalRenderer<MeteorHead>(c, new GeoNormalModel<MeteorHead>(TEMonsterEntities.METEOR_HEAD.getId(), true).withAltTexture(TerraEntity.space("star_cell")), true, 1, 0));
         event.registerEntityRenderer(TEMonsterEntities.FIRE_IMP.get(), c -> new GeoNormalRenderer<>(c, TEMonsterEntities.FIRE_IMP.getId()));
 
         event.registerEntityRenderer(TEMonsterEntities.GOBLIN_SORCERER.get(), c -> new GeoNormalRenderer<>(c, TEMonsterEntities.GOBLIN_SORCERER.getId().withPrefix("goblin/")));
@@ -486,6 +508,16 @@ public class TEMonsterEntities {
 
         // 远程法师
         event.put(DARK_CASTER.get(), AttBuilder.createAttributes(26, 2, 10, 20, 1, 0.82f).build());
+        event.put(CULTIST_ARCHER.get(), AttBuilder.createAttributes(150, 10, 20, 40, 1, 0.5f).build());
+        event.put(CULTIST_DEVOTEE.get(), AttBuilder.createAttributes(200, 10, 0, 16, 1, 0.5f).build());
+        event.put(SELENIAN.get(), AttBuilder.createAttributes(300, 20, 35, 48, 1, 0.6f).stepLength(3.2).jumpHeight(0.5).build());
+        event.put(CORITE.get(), AttBuilder.fly(AttBuilder.createAttributes(200, 20, 40, 48, 1f, 0.6f)).build());
+        event.put(STORM_DIVER.get(), AttBuilder.createAttributes(250, 18, 30, 48, 1, 0.6f).build());
+        event.put(ALIEN_HORNET.get(), AttBuilder.fly(AttBuilder.createAttributes(220, 16, 30, 48, 0, 0.6f).moveSpeed(0.5)).build());
+        event.put(NEBULA_FLOATER.get(), AttBuilder.createAttributes(240, 16, 32, 48, 1, 0.6f).build());
+        event.put(BRAIN_SUCKLER.get(), AttBuilder.fly(AttBuilder.createAttributes(180, 14, 30, 48, 1f, 0.6f)).build());
+        event.put(FLOW_INVADER.get(), AttBuilder.createAttributes(240, 16, 32, 48, 1, 0.6f).build());
+        event.put(STAR_CELL.get(), AttBuilder.fly(AttBuilder.createAttributes(180, 14, 30, 48, 1f, 0.6f)).build());
         event.put(FIRE_IMP.get(), AttBuilder.createAttributes(36, 16, 15, 20, 1, 0.55f).build());
 
         // 哥布林军队

@@ -238,6 +238,7 @@ public class TheTwins extends AbstractTerraBossBase implements Boss {
         }
 
         if (this.spazmatism == null && this.retinazer == null) {
+            setHealth(0.0F); // 否则本体不会被移除，Boss条会一直残留
             this.die(damageSources().genericKill());
         }
     }

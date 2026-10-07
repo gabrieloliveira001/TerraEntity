@@ -61,6 +61,30 @@ public class TEProjectileEntities {
             (BossBulletProj) new BossBulletProj(e, l).setGravity(0.006F).setTrail(ParticleTypes.FLAME).setEffectStrategy(TEEffectStrategies.SET_FIRE_EFFECT.get()), 0.7F, 0.7F);
     public static final DeferredHolder<EntityType<?>, EntityType<BossBulletProj>> GOLEM_LASER = registerProj("golem_laser", (e, l) ->
             new BossBulletProj(e, l).setTrail(new DustParticleOptions(new Vector3f(1.0F, 0.25F, 0.1F), 1.2F)), 0.35F, 0.35F);
+    public static final DeferredHolder<EntityType<?>, EntityType<BossBulletProj>> CULTIST_FIREBALL = registerProj("cultist_fireball", (e, l) ->
+            (BossBulletProj) new BossBulletProj(e, l).setTrail(ParticleTypes.FLAME).setEffectStrategy(TEEffectStrategies.SET_FIRE_EFFECT.get()), 0.6F, 0.6F);
+    public static final DeferredHolder<EntityType<?>, EntityType<IceMistProj>> ICE_MIST = registerProj("ice_mist", (e, l) ->
+            (IceMistProj) new IceMistProj(e, l).setTrail(ParticleTypes.SNOWFLAKE), 1.2F, 1.2F);
+    public static final DeferredHolder<EntityType<?>, EntityType<BossBulletProj>> ICE_MIST_SHARD = registerProj("ice_mist_shard", (e, l) ->
+            (BossBulletProj) new BossBulletProj(e, l).setTrail(ParticleTypes.SNOWFLAKE).addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 1)), 0.3F, 0.3F);
+    public static final DeferredHolder<EntityType<?>, EntityType<BossBulletProj>> CULTIST_LIGHTNING = registerProj("cultist_lightning", (e, l) ->
+            new BossBulletProj(e, l).setTrail(ParticleTypes.ELECTRIC_SPARK), 0.4F, 0.4F);
+    public static final DeferredHolder<EntityType<?>, EntityType<BossBulletProj>> ANCIENT_LIGHT = registerProj("ancient_light", (e, l) ->
+            new BossBulletProj(e, l).setTrail(ParticleTypes.END_ROD), 0.5F, 0.5F);
+    public static final DeferredHolder<EntityType<?>, EntityType<BossBulletProj>> CULTIST_ARROW = registerProj("cultist_arrow", (e, l) ->
+            new BossBulletProj(e, l).setGravity(0.004F).setTrail(ParticleTypes.CRIT), 0.3F, 0.3F);
+    public static final DeferredHolder<EntityType<?>, EntityType<BossBulletProj>> VORTEX_LASER = registerProj("vortex_laser", (e, l) ->
+            new BossBulletProj(e, l).setTrail(new DustParticleOptions(new Vector3f(0.2F, 0.95F, 0.8F), 1.0F)), 0.3F, 0.3F);
+    public static final DeferredHolder<EntityType<?>, EntityType<BossBulletProj>> NEBULA_BOLT = registerProj("nebula_bolt", (e, l) ->
+            new BossBulletProj(e, l).setTrail(new DustParticleOptions(new Vector3f(0.95F, 0.3F, 0.85F), 1.3F)), 0.4F, 0.4F);
+    public static final DeferredHolder<EntityType<?>, EntityType<BossBulletProj>> STARDUST_BOLT = registerProj("stardust_bolt", (e, l) ->
+            new BossBulletProj(e, l).setTrail(ParticleTypes.END_ROD), 0.4F, 0.4F);
+    public static final DeferredHolder<EntityType<?>, EntityType<BossBulletProj>> PHANTASMAL_BOLT = registerProj("phantasmal_bolt", (e, l) ->
+            new BossBulletProj(e, l).setTrail(new DustParticleOptions(new Vector3f(0.3F, 1.0F, 0.9F), 1.0F)), 0.35F, 0.35F);
+    public static final DeferredHolder<EntityType<?>, EntityType<BossBulletProj>> PHANTASMAL_SPHERE = registerProj("phantasmal_sphere", (e, l) ->
+            (BossBulletProj) new BossBulletProj(e, l).setTrail(new DustParticleOptions(new Vector3f(0.4F, 1.0F, 0.95F), 2.5F)).setExistTick(20 * 8), 0.9F, 0.9F);
+    public static final DeferredHolder<EntityType<?>, EntityType<BossBulletProj>> PHANTASMAL_EYE = registerProj("phantasmal_eye", (e, l) ->
+            (BossBulletProj) new BossBulletProj(e, l).setTrail(ParticleTypes.SOUL_FIRE_FLAME).setExistTick(20 * 6), 0.5F, 0.5F);
 
     // 鞭子
     public static final DeferredHolder<EntityType<?>, EntityType<WhipEntity>> WHIP_PROJECTILE = ENTITIES.register("whip_projectile", () -> EntityType.Builder.<WhipEntity>of(WhipEntity::new, MobCategory.MISC).updateInterval(1).clientTrackingRange(1).sized(0.5F, 0.5F).build(TEEntities.Key("whip_projectile")));
@@ -112,6 +136,18 @@ public class TEProjectileEntities {
         RegisterUtils.registerBaseProjRenderer(event, PRIME_BOMB.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
         RegisterUtils.registerBaseProjRenderer(event, GOLEM_FIREBALL.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
         RegisterUtils.registerBaseProjRenderer(event, GOLEM_LASER.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
+        RegisterUtils.registerBaseProjRenderer(event, CULTIST_FIREBALL.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
+        RegisterUtils.registerBaseProjRenderer(event, ICE_MIST.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
+        RegisterUtils.registerBaseProjRenderer(event, ICE_MIST_SHARD.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
+        RegisterUtils.registerBaseProjRenderer(event, CULTIST_LIGHTNING.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
+        RegisterUtils.registerBaseProjRenderer(event, ANCIENT_LIGHT.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
+        RegisterUtils.registerBaseProjRenderer(event, CULTIST_ARROW.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
+        RegisterUtils.registerBaseProjRenderer(event, VORTEX_LASER.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
+        RegisterUtils.registerBaseProjRenderer(event, NEBULA_BOLT.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
+        RegisterUtils.registerBaseProjRenderer(event, STARDUST_BOLT.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
+        RegisterUtils.registerBaseProjRenderer(event, PHANTASMAL_BOLT.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
+        RegisterUtils.registerBaseProjRenderer(event, PHANTASMAL_SPHERE.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
+        RegisterUtils.registerBaseProjRenderer(event, PHANTASMAL_EYE.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
 
         // 子弹
         event.registerEntityRenderer(TEProjectileEntities.TRAIL_PROJECTILE.get(), TrailProjectileRenderer::new);

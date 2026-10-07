@@ -37,6 +37,7 @@ public class TEEnglishProvider extends LanguageProvider {
         add(TEItems.HOUSE_DETECTOR.get(), "House Detector");
 
         TEEntities.getEntities().map(DeferredRegister::getEntries).flatMap(Collection::stream).forEach(entity -> add(entity.get(), LibUtils.toTitleCase(entity.getId().getPath())));
+        add("message.terra_entity.celestial_pillar.shield_down", "%s's shield is down!");
 
         TEEffects.EFFECTS.getEntries().forEach(effect -> add(effect.get(), LibUtils.toTitleCase(effect.getId().getPath())));
 

@@ -109,6 +109,22 @@ public class TESpawnEggItems {
     public static final DeferredItem<SpawnEggItem> THE_DESTROYER_SPAWN_EGG = registerEgg("the_destroyer_spawn_egg", TEBossEntities.THE_DESTROYER, 0xffffff, 0xffffff);
     public static final DeferredItem<SpawnEggItem> PLANTERA_SPAWN_EGG = registerEgg("plantera_spawn_egg", TEBossEntities.PLANTERA, 0xffffff, 0xffffff);
     public static final DeferredItem<SpawnEggItem> GOLEM_SPAWN_EGG = registerEgg("golem_spawn_egg", TEBossEntities.GOLEM, 0xb5703a, 0xf0c040);
+    public static final DeferredItem<SpawnEggItem> LUNATIC_CULTIST_SPAWN_EGG = registerEgg("lunatic_cultist_spawn_egg", TEBossEntities.LUNATIC_CULTIST, 0x2a4d9c, 0xe8c040);
+    public static final DeferredItem<SpawnEggItem> CULTIST_ARCHER_SPAWN_EGG = registerEgg("cultist_archer_spawn_egg", TEMonsterEntities.CULTIST_ARCHER, 0x2a3550, 0x8a8a8a);
+    public static final DeferredItem<SpawnEggItem> CULTIST_DEVOTEE_SPAWN_EGG = registerEgg("cultist_devotee_spawn_egg", TEMonsterEntities.CULTIST_DEVOTEE, 0x3a4fa0, 0xd0d0d0);
+    public static final DeferredItem<SpawnEggItem> SOLAR_PILLAR_SPAWN_EGG = registerEgg("solar_pillar_spawn_egg", TEBossEntities.SOLAR_PILLAR, 0xff8a1e, 0x5a2a0a);
+    public static final DeferredItem<SpawnEggItem> VORTEX_PILLAR_SPAWN_EGG = registerEgg("vortex_pillar_spawn_egg", TEBossEntities.VORTEX_PILLAR, 0x1ee8c8, 0x0a3a34);
+    public static final DeferredItem<SpawnEggItem> NEBULA_PILLAR_SPAWN_EGG = registerEgg("nebula_pillar_spawn_egg", TEBossEntities.NEBULA_PILLAR, 0xf04ce0, 0x3a0a38);
+    public static final DeferredItem<SpawnEggItem> STARDUST_PILLAR_SPAWN_EGG = registerEgg("stardust_pillar_spawn_egg", TEBossEntities.STARDUST_PILLAR, 0x7ad2ff, 0x1a3050);
+    public static final DeferredItem<SpawnEggItem> SELENIAN_SPAWN_EGG = registerEgg("selenian_spawn_egg", TEMonsterEntities.SELENIAN, 0xe0602a, 0xffd070);
+    public static final DeferredItem<SpawnEggItem> CORITE_SPAWN_EGG = registerEgg("corite_spawn_egg", TEMonsterEntities.CORITE, 0xff8a1e, 0xfff070);
+    public static final DeferredItem<SpawnEggItem> STORM_DIVER_SPAWN_EGG = registerEgg("storm_diver_spawn_egg", TEMonsterEntities.STORM_DIVER, 0x1ea898, 0x80ffe8);
+    public static final DeferredItem<SpawnEggItem> ALIEN_HORNET_SPAWN_EGG = registerEgg("alien_hornet_spawn_egg", TEMonsterEntities.ALIEN_HORNET, 0x30c070, 0x1ee8c8);
+    public static final DeferredItem<SpawnEggItem> NEBULA_FLOATER_SPAWN_EGG = registerEgg("nebula_floater_spawn_egg", TEMonsterEntities.NEBULA_FLOATER, 0xb030b0, 0xffa0f0);
+    public static final DeferredItem<SpawnEggItem> BRAIN_SUCKLER_SPAWN_EGG = registerEgg("brain_suckler_spawn_egg", TEMonsterEntities.BRAIN_SUCKLER, 0xd050c0, 0x502050);
+    public static final DeferredItem<SpawnEggItem> FLOW_INVADER_SPAWN_EGG = registerEgg("flow_invader_spawn_egg", TEMonsterEntities.FLOW_INVADER, 0x5aa0e0, 0xe0f4ff);
+    public static final DeferredItem<SpawnEggItem> STAR_CELL_SPAWN_EGG = registerEgg("star_cell_spawn_egg", TEMonsterEntities.STAR_CELL, 0x8ad8ff, 0xffffff);
+    public static final DeferredItem<SpawnEggItem> MOON_LORD_SPAWN_EGG = registerEgg("moon_lord_spawn_egg", TEBossEntities.MOON_LORD, 0xb8c4b0, 0x2ad8d0);
 
     // 地牢骷髅
     public static final DeferredItem<SpawnEggItem> ANGER_BONES_SPAWN_EGG = registerEgg("anger_bones_spawn_egg", TEMonsterEntities.ANGER_BONES, 0xffffff);

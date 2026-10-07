@@ -2,6 +2,7 @@ package org.confluence.terraentity.init.entity;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
@@ -14,6 +15,7 @@ import org.confluence.terraentity.TerraEntity;
 import org.confluence.terraentity.client.boss.model.GeoBossModel;
 import org.confluence.terraentity.client.boss.model.SkeletronHandModel;
 import org.confluence.terraentity.client.boss.renderer.*;
+import org.confluence.terraentity.client.entity.model.GeoNormalModel;
 import org.confluence.terraentity.client.entity.renderer.CrownOfKingSlimeModelRenderer;
 import org.confluence.terraentity.client.entity.renderer.GeoMotionBlurRenderer;
 import org.confluence.terraentity.client.entity.renderer.GeoNormalRenderer;
@@ -21,6 +23,12 @@ import org.confluence.terraentity.client.entity.renderer.mob.KingSlimeRenderer;
 import org.confluence.terraentity.entity.blur.PosRotMotionBlurRenderer;
 import org.confluence.terraentity.entity.boss.*;
 import org.confluence.terraentity.entity.boss.golem.Golem;
+import org.confluence.terraentity.entity.boss.moonlord.MoonLord;
+import org.confluence.terraentity.entity.boss.moonlord.MoonLordPart;
+import org.confluence.terraentity.entity.boss.moonlord.TrueEyeOfCthulhu;
+import org.confluence.terraentity.entity.boss.pillar.CelestialPillar;
+import org.confluence.terraentity.entity.boss.cultist.LunaticCultist;
+import org.confluence.terraentity.entity.boss.cultist.LunaticCultistClone;
 import org.confluence.terraentity.entity.boss.golem.GolemFist;
 import org.confluence.terraentity.entity.boss.golem.GolemHead;
 import org.confluence.terraentity.entity.boss.hillofflesh.HillOfFlesh;
@@ -40,6 +48,8 @@ import org.confluence.terraentity.entity.boss.wallofflesh.WallOfFlesh;
 import org.confluence.terraentity.entity.model.CrownOfKingSlimeModelEntity;
 import org.confluence.terraentity.entity.util.AttBuilder;
 import org.confluence.terraentity.init.TEEntities;
+
+import java.util.List;
 
 public class TEBossEntities {
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(Registries.ENTITY_TYPE, TerraEntity.MODID);
@@ -78,6 +88,19 @@ public class TEBossEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<Golem>> GOLEM = TEEntities.registerMonster(ENTITIES, "golem", Golem::new, 3.0F, 3.2F);
     public static final DeferredHolder<EntityType<?>, EntityType<GolemHead>> GOLEM_HEAD = TEEntities.registerMonster(ENTITIES, "golem_head", GolemHead::new, 1.6F, 1.4F);
     public static final DeferredHolder<EntityType<?>, EntityType<GolemFist>> GOLEM_FIST = TEEntities.registerMonster(ENTITIES, "golem_fist", GolemFist::new, 1.3F, 1.3F);
+
+    public static final DeferredHolder<EntityType<?>, EntityType<LunaticCultist>> LUNATIC_CULTIST = TEEntities.registerMonster(ENTITIES, "lunatic_cultist", LunaticCultist::new, 0.9F, 2.3F);
+    public static final DeferredHolder<EntityType<?>, EntityType<LunaticCultistClone>> LUNATIC_CULTIST_CLONE = TEEntities.registerMonster(ENTITIES, "lunatic_cultist_clone", LunaticCultistClone::new, 0.9F, 2.3F);
+
+    public static final DeferredHolder<EntityType<?>, EntityType<CelestialPillar>> SOLAR_PILLAR = TEEntities.registerMonster(ENTITIES, "solar_pillar", (e, l) -> new CelestialPillar(e, l, () -> List.<EntityType<? extends Mob>>of(TEMonsterEntities.SELENIAN.get(), TEMonsterEntities.CORITE.get()), 0xff8a1e), 3.5F, 8.0F);
+    public static final DeferredHolder<EntityType<?>, EntityType<CelestialPillar>> VORTEX_PILLAR = TEEntities.registerMonster(ENTITIES, "vortex_pillar", (e, l) -> new CelestialPillar(e, l, () -> List.<EntityType<? extends Mob>>of(TEMonsterEntities.STORM_DIVER.get(), TEMonsterEntities.ALIEN_HORNET.get()), 0x1ee8c8), 3.5F, 8.0F);
+    public static final DeferredHolder<EntityType<?>, EntityType<CelestialPillar>> NEBULA_PILLAR = TEEntities.registerMonster(ENTITIES, "nebula_pillar", (e, l) -> new CelestialPillar(e, l, () -> List.<EntityType<? extends Mob>>of(TEMonsterEntities.NEBULA_FLOATER.get(), TEMonsterEntities.BRAIN_SUCKLER.get()), 0xf04ce0), 3.5F, 8.0F);
+    public static final DeferredHolder<EntityType<?>, EntityType<CelestialPillar>> STARDUST_PILLAR = TEEntities.registerMonster(ENTITIES, "stardust_pillar", (e, l) -> new CelestialPillar(e, l, () -> List.<EntityType<? extends Mob>>of(TEMonsterEntities.FLOW_INVADER.get(), TEMonsterEntities.STAR_CELL.get()), 0x7ad2ff), 3.5F, 8.0F);
+
+    public static final DeferredHolder<EntityType<?>, EntityType<MoonLord>> MOON_LORD = TEEntities.registerMonster(ENTITIES, "moon_lord", MoonLord::new, 4.8F, 5.8F);
+    public static final DeferredHolder<EntityType<?>, EntityType<MoonLordPart>> MOON_LORD_HEAD = TEEntities.registerMonster(ENTITIES, "moon_lord_head", MoonLordPart::new, 4.2F, 4.5F);
+    public static final DeferredHolder<EntityType<?>, EntityType<MoonLordPart>> MOON_LORD_HAND = TEEntities.registerMonster(ENTITIES, "moon_lord_hand", MoonLordPart::new, 3.0F, 4.5F);
+    public static final DeferredHolder<EntityType<?>, EntityType<TrueEyeOfCthulhu>> TRUE_EYE_OF_CTHULHU = TEEntities.registerMonster(ENTITIES, "true_eye_of_cthulhu", TrueEyeOfCthulhu::new, 1.3F, 1.3F);
 
     @OnlyIn(Dist.CLIENT)
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
@@ -119,6 +142,19 @@ public class TEBossEntities {
         event.registerEntityRenderer(TEBossEntities.GOLEM.get(), c -> new GeoNormalRenderer<>(c, new GeoBossModel<>(TEBossEntities.GOLEM), false, 1, 0));
         event.registerEntityRenderer(TEBossEntities.GOLEM_HEAD.get(), c -> new GeoNormalRenderer<>(c, new GeoBossModel<>(TEBossEntities.GOLEM_HEAD), false, 1, 0));
         event.registerEntityRenderer(TEBossEntities.GOLEM_FIST.get(), c -> new GeoNormalRenderer<>(c, new GeoBossModel<>(TEBossEntities.GOLEM_FIST), false, 1, 0));
+
+        event.registerEntityRenderer(TEBossEntities.LUNATIC_CULTIST.get(), c -> new GeoNormalRenderer<LunaticCultist>(c, new GeoNormalModel<LunaticCultist>(TEMonsterEntities.DARK_CASTER.getId()).withAltTexture(TerraEntity.space("boss/lunatic_cultist")), false, 1.3F, 0));
+        event.registerEntityRenderer(TEBossEntities.LUNATIC_CULTIST_CLONE.get(), c -> new GeoNormalRenderer<LunaticCultistClone>(c, new GeoNormalModel<LunaticCultistClone>(TEMonsterEntities.DARK_CASTER.getId()).withAltTexture(TerraEntity.space("boss/lunatic_cultist")), false, 1.3F, 0));
+
+        event.registerEntityRenderer(TEBossEntities.SOLAR_PILLAR.get(), c -> new GeoNormalRenderer<>(c, new GeoBossModel<>(TEBossEntities.SOLAR_PILLAR), false, 1, 0));
+        event.registerEntityRenderer(TEBossEntities.VORTEX_PILLAR.get(), c -> new GeoNormalRenderer<>(c, new GeoBossModel<>(TEBossEntities.VORTEX_PILLAR), false, 1, 0));
+        event.registerEntityRenderer(TEBossEntities.NEBULA_PILLAR.get(), c -> new GeoNormalRenderer<>(c, new GeoBossModel<>(TEBossEntities.NEBULA_PILLAR), false, 1, 0));
+        event.registerEntityRenderer(TEBossEntities.STARDUST_PILLAR.get(), c -> new GeoNormalRenderer<>(c, new GeoBossModel<>(TEBossEntities.STARDUST_PILLAR), false, 1, 0));
+
+        event.registerEntityRenderer(TEBossEntities.MOON_LORD.get(), c -> new GeoNormalRenderer<>(c, new GeoBossModel<>(TEBossEntities.MOON_LORD), false, 1.6F, 0));
+        event.registerEntityRenderer(TEBossEntities.MOON_LORD_HEAD.get(), c -> new GeoNormalRenderer<>(c, new GeoBossModel<>(TEBossEntities.MOON_LORD_HEAD), false, 1.6F, 0));
+        event.registerEntityRenderer(TEBossEntities.MOON_LORD_HAND.get(), c -> new GeoNormalRenderer<>(c, new GeoBossModel<>(TEBossEntities.MOON_LORD_HAND), false, 1.6F, 0));
+        event.registerEntityRenderer(TEBossEntities.TRUE_EYE_OF_CTHULHU.get(), c -> new GeoNormalRenderer<>(c, new GeoBossModel<>(TEBossEntities.TRUE_EYE_OF_CTHULHU), false, 1, 0));
     }
 
     public static void registerEntityAttributes(EntityAttributeCreationEvent event) {
@@ -160,6 +196,19 @@ public class TEBossEntities {
         event.put(TEBossEntities.GOLEM.get(), AttBuilder.createBoss(32, 14000, 26).build());
         event.put(TEBossEntities.GOLEM_HEAD.get(), AttBuilder.createBoss(16, 4000, 20).build());
         event.put(TEBossEntities.GOLEM_FIST.get(), AttBuilder.createBoss(26, 2400, 26).build());
+
+        event.put(TEBossEntities.LUNATIC_CULTIST.get(), AttBuilder.createBoss(26, 12500, 42).build());
+        event.put(TEBossEntities.LUNATIC_CULTIST_CLONE.get(), AttBuilder.createBoss(14, 40, 0).build());
+
+        event.put(TEBossEntities.SOLAR_PILLAR.get(), AttBuilder.createBoss(0, 7800, 20).build());
+        event.put(TEBossEntities.VORTEX_PILLAR.get(), AttBuilder.createBoss(0, 7800, 20).build());
+        event.put(TEBossEntities.NEBULA_PILLAR.get(), AttBuilder.createBoss(0, 7800, 20).build());
+        event.put(TEBossEntities.STARDUST_PILLAR.get(), AttBuilder.createBoss(0, 7800, 20).build());
+
+        event.put(TEBossEntities.MOON_LORD.get(), AttBuilder.createBoss(45, 19500, 50).build());
+        event.put(TEBossEntities.MOON_LORD_HEAD.get(), AttBuilder.createBoss(30, 17500, 50).build());
+        event.put(TEBossEntities.MOON_LORD_HAND.get(), AttBuilder.createBoss(30, 9750, 40).build());
+        event.put(TEBossEntities.TRUE_EYE_OF_CTHULHU.get(), AttBuilder.createBoss(25, 100, 0).build());
     }
 
     public static void register(IEventBus bus) {

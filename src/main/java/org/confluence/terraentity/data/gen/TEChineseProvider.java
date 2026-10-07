@@ -179,6 +179,27 @@ public class TEChineseProvider extends LanguageProvider {
         add(TEBossEntities.GOLEM.get(), "石巨人");
         add(TEBossEntities.GOLEM_HEAD.get(), "石巨人头");
         add(TEBossEntities.GOLEM_FIST.get(), "石巨人拳头");
+        add(TEBossEntities.LUNATIC_CULTIST.get(), "拜月教邪教徒");
+        add(TEBossEntities.LUNATIC_CULTIST_CLONE.get(), "拜月教邪教徒分身");
+        add(TEMonsterEntities.CULTIST_ARCHER.get(), "邪教徒弓箭手");
+        add(TEMonsterEntities.CULTIST_DEVOTEE.get(), "邪教徒信徒");
+        add(TEBossEntities.SOLAR_PILLAR.get(), "日耀柱");
+        add(TEBossEntities.VORTEX_PILLAR.get(), "星旋柱");
+        add(TEBossEntities.NEBULA_PILLAR.get(), "星云柱");
+        add(TEBossEntities.STARDUST_PILLAR.get(), "星尘柱");
+        add(TEMonsterEntities.SELENIAN.get(), "月亮人");
+        add(TEMonsterEntities.CORITE.get(), "日冕怪");
+        add(TEMonsterEntities.STORM_DIVER.get(), "风暴潜水者");
+        add(TEMonsterEntities.ALIEN_HORNET.get(), "外星黄蜂");
+        add(TEMonsterEntities.NEBULA_FLOATER.get(), "星云浮怪");
+        add(TEMonsterEntities.BRAIN_SUCKLER.get(), "吮脑怪");
+        add(TEMonsterEntities.FLOW_INVADER.get(), "流体入侵怪");
+        add(TEMonsterEntities.STAR_CELL.get(), "星细胞");
+        add(TEBossEntities.MOON_LORD.get(), "月亮领主");
+        add(TEBossEntities.MOON_LORD_HEAD.get(), "月亮领主的头");
+        add(TEBossEntities.MOON_LORD_HAND.get(), "月亮领主的手");
+        add(TEBossEntities.TRUE_EYE_OF_CTHULHU.get(), "真·克苏鲁之眼");
+        add("message.terra_entity.celestial_pillar.shield_down", "%s的护盾被击破了！");
 
 
         // 召唤物
@@ -381,6 +402,22 @@ public class TEChineseProvider extends LanguageProvider {
         add(TESpawnEggItems.SKELETRON_PRIME_SPAWN_EGG.get(), "机械骷髅王刷怪蛋");
         add(TESpawnEggItems.THE_DESTROYER_SPAWN_EGG.get(), "毁灭者刷怪蛋");
         add(TESpawnEggItems.GOLEM_SPAWN_EGG.get(), "石巨人刷怪蛋");
+        add(TESpawnEggItems.LUNATIC_CULTIST_SPAWN_EGG.get(), "拜月教邪教徒刷怪蛋");
+        add(TESpawnEggItems.CULTIST_ARCHER_SPAWN_EGG.get(), "邪教徒弓箭手刷怪蛋");
+        add(TESpawnEggItems.CULTIST_DEVOTEE_SPAWN_EGG.get(), "邪教徒信徒刷怪蛋");
+        add(TESpawnEggItems.SOLAR_PILLAR_SPAWN_EGG.get(), "日耀柱刷怪蛋");
+        add(TESpawnEggItems.VORTEX_PILLAR_SPAWN_EGG.get(), "星旋柱刷怪蛋");
+        add(TESpawnEggItems.NEBULA_PILLAR_SPAWN_EGG.get(), "星云柱刷怪蛋");
+        add(TESpawnEggItems.STARDUST_PILLAR_SPAWN_EGG.get(), "星尘柱刷怪蛋");
+        add(TESpawnEggItems.SELENIAN_SPAWN_EGG.get(), "月亮人刷怪蛋");
+        add(TESpawnEggItems.CORITE_SPAWN_EGG.get(), "日冕怪刷怪蛋");
+        add(TESpawnEggItems.STORM_DIVER_SPAWN_EGG.get(), "风暴潜水者刷怪蛋");
+        add(TESpawnEggItems.ALIEN_HORNET_SPAWN_EGG.get(), "外星黄蜂刷怪蛋");
+        add(TESpawnEggItems.NEBULA_FLOATER_SPAWN_EGG.get(), "星云浮怪刷怪蛋");
+        add(TESpawnEggItems.BRAIN_SUCKLER_SPAWN_EGG.get(), "吮脑怪刷怪蛋");
+        add(TESpawnEggItems.FLOW_INVADER_SPAWN_EGG.get(), "流体入侵怪刷怪蛋");
+        add(TESpawnEggItems.STAR_CELL_SPAWN_EGG.get(), "星细胞刷怪蛋");
+        add(TESpawnEggItems.MOON_LORD_SPAWN_EGG.get(), "月亮领主刷怪蛋");
         add(TESpawnEggItems.PLANTERA_SPAWN_EGG.get(), "世纪之花刷怪蛋");
 
 
