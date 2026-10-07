@@ -150,6 +150,9 @@ public class TheTwins extends AbstractTerraBossBase implements Boss {
             entityData.set(DATA_SPAZMATISM_ID, spazmatism.getId());
             sp.ownerUUID = getUUID();
         }
+        // 生成时眼睛已在finalizeSpawn中赋值，上面的分支不会执行，这里确保眼睛知道主人，死亡时才能通知本体
+        if (spazmatism != null) spazmatism.ownerUUID = getUUID();
+        if (retinazer != null) retinazer.ownerUUID = getUUID();
     }
 
     @Override

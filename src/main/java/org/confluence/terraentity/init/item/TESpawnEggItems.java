@@ -108,6 +108,7 @@ public class TESpawnEggItems {
     public static final DeferredItem<SpawnEggItem> SKELETRON_PRIME_SPAWN_EGG = registerEgg("skeletron_prime_spawn_egg", TEBossEntities.SKELETRON_PRIME, 0xffffff, 0xffffff);
     public static final DeferredItem<SpawnEggItem> THE_DESTROYER_SPAWN_EGG = registerEgg("the_destroyer_spawn_egg", TEBossEntities.THE_DESTROYER, 0xffffff, 0xffffff);
     public static final DeferredItem<SpawnEggItem> PLANTERA_SPAWN_EGG = registerEgg("plantera_spawn_egg", TEBossEntities.PLANTERA, 0xffffff, 0xffffff);
+    public static final DeferredItem<SpawnEggItem> GOLEM_SPAWN_EGG = registerEgg("golem_spawn_egg", TEBossEntities.GOLEM, 0xb5703a, 0xf0c040);
 
     // 地牢骷髅
     public static final DeferredItem<SpawnEggItem> ANGER_BONES_SPAWN_EGG = registerEgg("anger_bones_spawn_egg", TEMonsterEntities.ANGER_BONES, 0xffffff);
@@ -149,6 +150,7 @@ public class TESpawnEggItems {
     public static final DeferredItem<SpawnEggItem> DARK_MUMMY_SPAWN_EGG = registerEgg("dark_mummy_spawn_egg", TEMonsterEntities.DARK_MUMMY, 0xffffff);
     public static final DeferredItem<SpawnEggItem> BLOOD_MUMMY_SPAWN_EGG = registerEgg("blood_mummy_spawn_egg", TEMonsterEntities.BLOOD_MUMMY, 0xffffff);
     public static final DeferredItem<SpawnEggItem> LIGHT_MUMMY_SPAWN_EGG = registerEgg("light_mummy_spawn_egg", TEMonsterEntities.LIGHT_MUMMY, 0xffffff);
+    public static final DeferredItem<SpawnEggItem> LIHZAHRD_SPAWN_EGG = registerEgg("lihzahrd_spawn_egg", TEMonsterEntities.LIHZAHRD, 0x8a5a2b, 0xd6b04a);
 
     public static final DeferredItem<SpawnEggItem> DARK_LAMIA_SPAWN_EGG = registerEgg("dark_lamia_spawn_egg", TEMonsterEntities.DARK_LAMIA, 0xffffff);
     public static final DeferredItem<SpawnEggItem> LIGHT_LAMIA_SPAWN_EGG = registerEgg("light_lamia_spawn_egg", TEMonsterEntities.LIGHT_LAMIA, 0xffffff);

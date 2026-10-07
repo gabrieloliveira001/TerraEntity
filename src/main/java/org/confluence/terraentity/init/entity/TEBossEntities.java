@@ -20,6 +20,9 @@ import org.confluence.terraentity.client.entity.renderer.GeoNormalRenderer;
 import org.confluence.terraentity.client.entity.renderer.mob.KingSlimeRenderer;
 import org.confluence.terraentity.entity.blur.PosRotMotionBlurRenderer;
 import org.confluence.terraentity.entity.boss.*;
+import org.confluence.terraentity.entity.boss.golem.Golem;
+import org.confluence.terraentity.entity.boss.golem.GolemFist;
+import org.confluence.terraentity.entity.boss.golem.GolemHead;
 import org.confluence.terraentity.entity.boss.hillofflesh.HillOfFlesh;
 import org.confluence.terraentity.entity.boss.plantera.Plantera;
 import org.confluence.terraentity.entity.boss.plantera.PlanteraHook;
@@ -72,6 +75,10 @@ public class TEBossEntities {
 
     public static final DeferredHolder<EntityType<?>, EntityType<PrimeEnderDragon>> PRIME_ENDER_DRAGON = TEEntities.registerMonster(ENTITIES, "prime_ender_dragon", PrimeEnderDragon::new, 10F, 10F);
 
+    public static final DeferredHolder<EntityType<?>, EntityType<Golem>> GOLEM = TEEntities.registerMonster(ENTITIES, "golem", Golem::new, 3.0F, 3.2F);
+    public static final DeferredHolder<EntityType<?>, EntityType<GolemHead>> GOLEM_HEAD = TEEntities.registerMonster(ENTITIES, "golem_head", GolemHead::new, 1.6F, 1.4F);
+    public static final DeferredHolder<EntityType<?>, EntityType<GolemFist>> GOLEM_FIST = TEEntities.registerMonster(ENTITIES, "golem_fist", GolemFist::new, 1.3F, 1.3F);
+
     @OnlyIn(Dist.CLIENT)
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(TEBossEntities.CROWN_OF_KING_SLIME_MODEL.get(), CrownOfKingSlimeModelRenderer::new);
@@ -108,6 +115,10 @@ public class TEBossEntities {
         event.registerEntityRenderer(TEBossEntities.PLANTERA_TENTACLE.get(), c -> new GeoNormalRenderer<>(c, TEMonsterEntities.VISUAL_NEURON.getId(), true, 1f, 0));
 
         event.registerEntityRenderer(TEBossEntities.PRIME_ENDER_DRAGON.get(), PrimeEnderDragonRenderer::new);
+
+        event.registerEntityRenderer(TEBossEntities.GOLEM.get(), c -> new GeoNormalRenderer<>(c, new GeoBossModel<>(TEBossEntities.GOLEM), false, 1, 0));
+        event.registerEntityRenderer(TEBossEntities.GOLEM_HEAD.get(), c -> new GeoNormalRenderer<>(c, new GeoBossModel<>(TEBossEntities.GOLEM_HEAD), false, 1, 0));
+        event.registerEntityRenderer(TEBossEntities.GOLEM_FIST.get(), c -> new GeoNormalRenderer<>(c, new GeoBossModel<>(TEBossEntities.GOLEM_FIST), false, 1, 0));
     }
 
     public static void registerEntityAttributes(EntityAttributeCreationEvent event) {
@@ -145,6 +156,10 @@ public class TEBossEntities {
         event.put(TEBossEntities.PLANTERA_TENTACLE.get(), AttBuilder.createBoss(15.6, PlanteraTentacle.MAX_HEALTH, 20).build());
 
         event.put(TEBossEntities.PRIME_ENDER_DRAGON.get(), AttBuilder.createBoss(32, 4624, 20).build());
+
+        event.put(TEBossEntities.GOLEM.get(), AttBuilder.createBoss(32, 14000, 26).build());
+        event.put(TEBossEntities.GOLEM_HEAD.get(), AttBuilder.createBoss(16, 4000, 20).build());
+        event.put(TEBossEntities.GOLEM_FIST.get(), AttBuilder.createBoss(26, 2400, 26).build());
     }
 
     public static void register(IEventBus bus) {

@@ -133,6 +133,7 @@ public class TEChineseProvider extends LanguageProvider {
         add(TEMonsterEntities.DARK_MUMMY.get(), "暗黑木乃伊");
         add(TEMonsterEntities.BLOOD_MUMMY.get(), "血木乃伊");
         add(TEMonsterEntities.LIGHT_MUMMY.get(), "光明木乃伊");
+        add(TEMonsterEntities.LIHZAHRD.get(), "丛林蜥蜴");
         add(TEMonsterEntities.DARK_LAMIA.get(), "黑暗拉弥亚");
         add(TEMonsterEntities.LIGHT_LAMIA.get(), "光明拉弥亚");
         add(TEMonsterEntities.GHOUL.get(), "食尸鬼");
@@ -175,6 +176,9 @@ public class TEChineseProvider extends LanguageProvider {
         add(TEBossEntities.PLANTERA.get(), "世纪之花");
         add(TEBossEntities.PLANTERA_HOOK.get(), "世纪之花钩");
         add(TEBossEntities.PLANTERA_TENTACLE.get(), "世纪之花触手");
+        add(TEBossEntities.GOLEM.get(), "石巨人");
+        add(TEBossEntities.GOLEM_HEAD.get(), "石巨人头");
+        add(TEBossEntities.GOLEM_FIST.get(), "石巨人拳头");
 
 
         // 召唤物
@@ -306,6 +310,7 @@ public class TEChineseProvider extends LanguageProvider {
         add(TESpawnEggItems.DARK_MUMMY_SPAWN_EGG.get(), "暗黑木乃伊刷怪蛋");
         add(TESpawnEggItems.BLOOD_MUMMY_SPAWN_EGG.get(), "血木乃伊刷怪蛋");
         add(TESpawnEggItems.LIGHT_MUMMY_SPAWN_EGG.get(), "光明木乃伊刷怪蛋");
+        add(TESpawnEggItems.LIHZAHRD_SPAWN_EGG.get(), "丛林蜥蜴刷怪蛋");
 
         add(TESpawnEggItems.DARK_LAMIA_SPAWN_EGG.get(), "黑暗拉弥亚刷怪蛋");
         add(TESpawnEggItems.LIGHT_LAMIA_SPAWN_EGG.get(), "光明拉弥亚刷怪蛋");
@@ -375,6 +380,7 @@ public class TEChineseProvider extends LanguageProvider {
         add(TESpawnEggItems.THE_TWINS_SPAWN_EGG.get(), "双子魔眼刷怪蛋");
         add(TESpawnEggItems.SKELETRON_PRIME_SPAWN_EGG.get(), "机械骷髅王刷怪蛋");
         add(TESpawnEggItems.THE_DESTROYER_SPAWN_EGG.get(), "毁灭者刷怪蛋");
+        add(TESpawnEggItems.GOLEM_SPAWN_EGG.get(), "石巨人刷怪蛋");
         add(TESpawnEggItems.PLANTERA_SPAWN_EGG.get(), "世纪之花刷怪蛋");
 
 

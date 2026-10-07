@@ -196,6 +196,7 @@ public class TEMonsterEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<AbstractMonster>> DARK_MUMMY = registerSimpleMonster("dark_mummy", LandMonsterPrefab.EVIL_MUMMY_BUILDER, 0.75F, 1.95F);
     public static final DeferredHolder<EntityType<?>, EntityType<AbstractMonster>> BLOOD_MUMMY = registerSimpleMonster("blood_mummy", LandMonsterPrefab.EVIL_MUMMY_BUILDER, 0.75F, 1.95F);
     public static final DeferredHolder<EntityType<?>, EntityType<AbstractMonster>> LIGHT_MUMMY = registerSimpleMonster("light_mummy", LandMonsterPrefab.MUMMY_BUILDER, 0.75F, 1.95F);
+    public static final DeferredHolder<EntityType<?>, EntityType<AbstractMonster>> LIHZAHRD = registerSimpleMonster("lihzahrd", LandMonsterPrefab.MUMMY_BUILDER, 0.75F, 1.95F);
     public static final DeferredHolder<EntityType<?>, EntityType<AbstractMonster>> DARK_LAMIA = registerSimpleMonster("dark_lamia", LandMonsterPrefab.LAMIA_BUILDER, 0.75F, 1.95F);
     public static final DeferredHolder<EntityType<?>, EntityType<AbstractMonster>> LIGHT_LAMIA = registerSimpleMonster("light_lamia", LandMonsterPrefab.LAMIA_BUILDER, 0.75F, 1.95F);
     public static final DeferredHolder<EntityType<?>, EntityType<AbstractMonster>> GHOUL = registerSimpleMonster("ghoul", LandMonsterPrefab.GHOUL_BUILDER, 0.75F, 1.95F);
@@ -360,6 +361,7 @@ public class TEMonsterEntities {
         event.registerEntityRenderer(TEMonsterEntities.DARK_MUMMY.get(), c -> new GeoNormalRenderer<>(c, TEMonsterEntities.DARK_MUMMY.getId()));
         event.registerEntityRenderer(TEMonsterEntities.BLOOD_MUMMY.get(), c -> new GeoNormalRenderer<>(c, TEMonsterEntities.BLOOD_MUMMY.getId()));
         event.registerEntityRenderer(TEMonsterEntities.LIGHT_MUMMY.get(), c -> new GeoNormalRenderer<>(c, TEMonsterEntities.LIGHT_MUMMY.getId()));
+        event.registerEntityRenderer(TEMonsterEntities.LIHZAHRD.get(), c -> new GeoNormalRenderer<>(c, TEMonsterEntities.LIHZAHRD.getId()));
         event.registerEntityRenderer(TEMonsterEntities.DARK_LAMIA.get(), c -> new GeoNormalRenderer<>(c, TEMonsterEntities.DARK_LAMIA.getId()));
         event.registerEntityRenderer(TEMonsterEntities.LIGHT_LAMIA.get(), c -> new GeoNormalRenderer<>(c, TEMonsterEntities.LIGHT_LAMIA.getId()));
         event.registerEntityRenderer(TEMonsterEntities.GHOUL.get(), c -> new GeoNormalRenderer<>(c, TEMonsterEntities.GHOUL.getId()));
@@ -517,6 +519,7 @@ public class TEMonsterEntities {
         event.put(DARK_MUMMY.get(), AttBuilder.createAttributes(93, 18, 32, 48, 1, 0.55f).stepLength(3.2).jumpHeight(0.5).build());
         event.put(BLOOD_MUMMY.get(), AttBuilder.createAttributes(93, 18, 32, 48, 1, 0.55f).stepLength(3.2).jumpHeight(0.5).build());
         event.put(LIGHT_MUMMY.get(), AttBuilder.createAttributes(104, 18, 28, 48, 1, 0.51f).stepLength(3.2).jumpHeight(0.5).build());
+        event.put(LIHZAHRD.get(), AttBuilder.createAttributes(400, 16, 30, 40, 1, 0.6f).stepLength(3.2).jumpHeight(0.5).build());
         event.put(DARK_LAMIA.get(), AttBuilder.createAttributes(182, 28, 27, 48, 1, 0.69f).stepLength(3.2).jumpHeight(0.5).build());
         event.put(LIGHT_LAMIA.get(), AttBuilder.createAttributes(182, 28, 27, 48, 1, 0.69f).stepLength(3.2).jumpHeight(0.5).build());
         event.put(GHOUL.get(), AttBuilder.createAttributes(93, 26, 26, 64, 1, 0.46f).stepLength(3.2).jumpHeight(0.7).build());
@@ -662,6 +665,7 @@ public class TEMonsterEntities {
         event.register(DARK_MUMMY.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SpawnPlacementChecks.checkHardmode(SpawnPlacementChecks::checkRoutineMonsterSpawn), RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(BLOOD_MUMMY.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SpawnPlacementChecks.checkHardmode(SpawnPlacementChecks::checkRoutineMonsterSpawn), RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(LIGHT_MUMMY.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SpawnPlacementChecks.checkHardmode(SpawnPlacementChecks::checkRoutineMonsterSpawn), RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        event.register(LIHZAHRD.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Monster::checkAnyLightMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(DARK_LAMIA.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SpawnPlacementChecks.checkHardmode(SpawnPlacementChecks::checkUndergroundMonsterSpawn), RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(LIGHT_LAMIA.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SpawnPlacementChecks.checkHardmode(SpawnPlacementChecks::checkUndergroundMonsterSpawn), RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(GHOUL.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SpawnPlacementChecks.checkHardmode(SpawnPlacementChecks::checkUndergroundMonsterSpawn), RegisterSpawnPlacementsEvent.Operation.REPLACE);

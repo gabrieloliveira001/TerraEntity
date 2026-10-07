@@ -1,5 +1,6 @@
 package org.confluence.terraentity.init.entity;
 
+import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -22,6 +23,7 @@ import org.confluence.terraentity.entity.proj.*;
 import org.confluence.terraentity.init.TEEffectStrategies;
 import org.confluence.terraentity.init.TEEntities;
 import org.confluence.terraentity.init.TEParticles;
+import org.joml.Vector3f;
 
 public class TEProjectileEntities {
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(Registries.ENTITY_TYPE, TerraEntity.MODID);
@@ -55,6 +57,10 @@ public class TEProjectileEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<SpikeBallProjectile>> SPIKE_BALL = registerProj("spike_ball_proj", SpikeBallProjectile::new, 1.5F, 1.5F);
     public static final DeferredHolder<EntityType<?>, EntityType<BossBulletProj>> PRIME_BOMB = registerProj("prime_bomb", (e, l) ->
             new BossBulletProj(e, l).setGravity(0.015F).setExplosionRadius(2.5F).setTrail(ParticleTypes.SMOKE), 0.6F, 0.6F);
+    public static final DeferredHolder<EntityType<?>, EntityType<BossBulletProj>> GOLEM_FIREBALL = registerProj("golem_fireball", (e, l) ->
+            (BossBulletProj) new BossBulletProj(e, l).setGravity(0.006F).setTrail(ParticleTypes.FLAME).setEffectStrategy(TEEffectStrategies.SET_FIRE_EFFECT.get()), 0.7F, 0.7F);
+    public static final DeferredHolder<EntityType<?>, EntityType<BossBulletProj>> GOLEM_LASER = registerProj("golem_laser", (e, l) ->
+            new BossBulletProj(e, l).setTrail(new DustParticleOptions(new Vector3f(1.0F, 0.25F, 0.1F), 1.2F)), 0.35F, 0.35F);
 
     // 鞭子
     public static final DeferredHolder<EntityType<?>, EntityType<WhipEntity>> WHIP_PROJECTILE = ENTITIES.register("whip_projectile", () -> EntityType.Builder.<WhipEntity>of(WhipEntity::new, MobCategory.MISC).updateInterval(1).clientTrackingRange(1).sized(0.5F, 0.5F).build(TEEntities.Key("whip_projectile")));
@@ -104,6 +110,8 @@ public class TEProjectileEntities {
         RegisterUtils.registerBaseProjRenderer(event, SPORE.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
         RegisterUtils.registerBaseProjRenderer(event, SPIKE_BALL.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
         RegisterUtils.registerBaseProjRenderer(event, PRIME_BOMB.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
+        RegisterUtils.registerBaseProjRenderer(event, GOLEM_FIREBALL.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
+        RegisterUtils.registerBaseProjRenderer(event, GOLEM_LASER.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
 
         // 子弹
         event.registerEntityRenderer(TEProjectileEntities.TRAIL_PROJECTILE.get(), TrailProjectileRenderer::new);
