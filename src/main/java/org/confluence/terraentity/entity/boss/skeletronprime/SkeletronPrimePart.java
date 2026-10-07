@@ -257,13 +257,12 @@ public class SkeletronPrimePart extends AbstractMonster implements GeoEntity, Ow
 
             @Override
             protected void shoot(LivingEntity target) {
-                // todo 加农炮弹幕
-                var entity = EntityType.SNOWBALL.create(mob.level());
+                var entity = TEProjectileEntities.PRIME_BOMB.get().create(mob.level());
                 if (entity != null) {
-                    entity.shootFromRotation(mob, mob.getXRot(), mob.getYRot(), 0.0f, 1.5f, 10.0f);
+                    entity.shootFromRotation(mob, mob.getXRot(), mob.getYRot(), 0.0f, 0.6f, 5.0f);
                     entity.setOwner(mob);
                     entity.setPos(mob.getX(), mob.getY()  + mob.getBbHeight() * 0.5f, mob.getZ());
-//                    entity.setDamage((float) mob.getAttributeValue(LibAttributes.getAttackDamage()));
+                    entity.setDamage((float) mob.getAttributeValue(LibAttributes.getAttackDamage()) * 1.5f);
                     mob.level().addFreshEntity(entity);
                 }
             }

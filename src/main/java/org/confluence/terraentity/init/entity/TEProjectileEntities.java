@@ -53,6 +53,8 @@ public class TEProjectileEntities {
     public static final DeferredHolder<EntityType<?>, EntityType<SporeProjectile>> SPORE = registerProj("spore_proj", (e, l) ->
             new SporeProjectile(e, l).setCanBeHurt(), 0.5F, 0.5F);
     public static final DeferredHolder<EntityType<?>, EntityType<SpikeBallProjectile>> SPIKE_BALL = registerProj("spike_ball_proj", SpikeBallProjectile::new, 1.5F, 1.5F);
+    public static final DeferredHolder<EntityType<?>, EntityType<BossBulletProj>> PRIME_BOMB = registerProj("prime_bomb", (e, l) ->
+            new BossBulletProj(e, l).setGravity(0.015F).setExplosionRadius(2.5F).setTrail(ParticleTypes.SMOKE), 0.6F, 0.6F);
 
     // 鞭子
     public static final DeferredHolder<EntityType<?>, EntityType<WhipEntity>> WHIP_PROJECTILE = ENTITIES.register("whip_projectile", () -> EntityType.Builder.<WhipEntity>of(WhipEntity::new, MobCategory.MISC).updateInterval(1).clientTrackingRange(1).sized(0.5F, 0.5F).build(TEEntities.Key("whip_projectile")));
@@ -101,6 +103,7 @@ public class TEProjectileEntities {
         RegisterUtils.registerBaseProjRenderer(event, SEED.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
         RegisterUtils.registerBaseProjRenderer(event, SPORE.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
         RegisterUtils.registerBaseProjRenderer(event, SPIKE_BALL.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
+        RegisterUtils.registerBaseProjRenderer(event, PRIME_BOMB.get(), c -> new Stinger<>(c.bakeLayer(Stinger.LAYER_LOCATION)));
 
         // 子弹
         event.registerEntityRenderer(TEProjectileEntities.TRAIL_PROJECTILE.get(), TrailProjectileRenderer::new);

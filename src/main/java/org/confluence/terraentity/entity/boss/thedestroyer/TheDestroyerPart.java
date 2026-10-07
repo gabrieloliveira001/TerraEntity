@@ -125,12 +125,20 @@ public class TheDestroyerPart extends AbstractTerraBossBase implements Boss.Boss
 
         // 天空模式：蓝色火焰伤害
         if (owner != null && owner.getPhase() == TheDestroyer.Phase.SKY) {
-            level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(1.5),
-                            e -> e != this && e != owner && !(e instanceof TheDestroyerPart))
-                    .forEach(e -> {
-                        // TODO - 蓝色火焰攻击特殊处理
-                        e.hurt(damageSources().mobAttack(this), 10.0f);
-                    });
+            if (level().isClientSide) {
+                if (random.nextFloat() < 0.3F) {
+                    level().addParticle(ParticleTypes.SOUL_FIRE_FLAME, getRandomX(0.8), getRandomY(), getRandomZ(0.8), 0, 0.02, 0);
+                }
+            } else {
+                level().getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(1.5),
+                                e -> e != this && e != owner && !(e instanceof TheDestroyerPart) && !(e instanceof TheDestroyerProbe))
+                        .forEach(e -> {
+                            // 蓝色火焰：接触伤害并点燃
+                            if (e.hurt(damageSources().mobAttack(this), 10.0f)) {
+                                e.igniteForSeconds(3);
+                            }
+                        });
+            }
         }
     }
 
